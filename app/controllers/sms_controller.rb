@@ -7,14 +7,6 @@ def index
   render :text => 'OK'
 end
 
-def welcome
-  user_id = params['user_id']
-  user = Users.find(user_id)
-  msg = "Coin Rules Everything Around Me. (Welcome!)"
-  send_sms(user.phone_number, msg) unless user.nil?
-  render :text => 'OK'
-end
-
 def sms_update
   sms_all_users(current_prices)
   render :text => 'OK'
