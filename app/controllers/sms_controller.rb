@@ -4,15 +4,7 @@ def index
   msg = current_prices
   send_sms('+16463735777', 'C.R.E.A.M. %s' % msg)
   send_sms('+19175731568', 'C.R.E.A.M. %s' % msg)
-  render :text => 'OK'
-end
-
-def welcome
-  user_id = params['user_id']
-  user = Users.find(user_id)
-  msg = "Coin Rules Everything Around Me. (Welcome!)"
-  send_sms(user.phone_number, msg) unless user.nil?
-  render :text => 'OK'
+  render :text => 'OK!'
 end
 
 def test
