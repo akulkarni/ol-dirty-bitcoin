@@ -9,7 +9,7 @@ end
 
 def welcome
   user_id = params['user_id']
-  user = Users.find(user_id)
+  user = User.find(user_id)
   msg = "Coin Rules Everything Around Me. (Welcome!)"
   send_sms(user.phone_number, msg) unless user.nil?
   render :text => 'OK'
