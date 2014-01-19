@@ -16,23 +16,26 @@ def welcome
 end
 
 def sms_update
-  msg = current_prices
-  users = User.all
-  users.each do |u|
-    send_sms(u.phone_number, msg) unless u.phone_number.nil?
-  end
+  sms_all_users(current_prices)
   render :text => 'OK'
 end
 
-def test
-  @mtgox = MtGox.ticker
-  msg = 'C.R.E.A.M. Current price on Gox: %s' 
-  send_sms('+16463735777', msg % @mtgox.price)
-  send_sms('+19175731568', msg % @mtgox.price)
+def news_update
+  msg = params['msg']
+  sms_all_users(msg) unless msg.nil?
+  render :text => 'OK'
 end  
 
 
 private
+
+def sms_all_users(msg)
+  users = User.all
+  users.each do |u|
+#    send_sms(u.phone_number, msg) unless u.phone_number.nil?
+    send_sms(u.phone_number, msg) if u.phone_number == '+19175731568'
+  end
+end
 
 def current_prices
   mtgox = MtGox.ticker
