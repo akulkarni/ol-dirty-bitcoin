@@ -13,7 +13,7 @@ def sms_update
 end
 
 def news_update
-  msg = params['msg']
+  msg = params['message']
   sms_all_users(msg) unless msg.nil?
   render :text => 'OK'
 end  
@@ -24,8 +24,7 @@ private
 def sms_all_users(msg)
   users = User.all
   users.each do |u|
-#    send_sms(u.phone_number, msg) unless u.phone_number.nil?
-    send_sms(u.phone_number, msg) if u.phone_number == '+19175731568'
+    send_sms(u.phone_number, msg) unless u.phone_number.nil?
   end
 end
 

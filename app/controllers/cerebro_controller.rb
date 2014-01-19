@@ -1,0 +1,2 @@
+class CerebroController < ApplicationController
+end

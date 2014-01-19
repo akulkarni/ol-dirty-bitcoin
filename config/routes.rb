@@ -4,7 +4,7 @@ OlDailyBitcoin::Application.routes.draw do
   match '/sms_update' => 'sms#sms_update', :via => :get
   match '/news_update' => 'sms#news_update', :via => :post
 
-  resources :super_market, :sms, :register, :news
+  resources :super_market, :sms, :register, :cerebro
 
 
 end

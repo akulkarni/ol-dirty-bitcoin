@@ -1,0 +1,9 @@
+%h1 NEWS
+
+= form_tag '/news_update' do
+  = field_set_tag do 
+    %p
+      = label_tag :message, 'Message:'
+      = text_area_tag :message
+    %p= submit_tag 'Send'
+
