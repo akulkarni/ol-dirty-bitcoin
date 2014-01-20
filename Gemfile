@@ -10,6 +10,7 @@ gem 'thin'
 gem 'haml', '>= 2.2.0'
 
 gem 'twilio-ruby'
+gem "font-awesome-rails"
 
 gem 'coinbase' 
 gem 'mtgox'
