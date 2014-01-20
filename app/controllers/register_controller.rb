@@ -4,15 +4,17 @@ class RegisterController < ApplicationController
 
 def create
   phone_number = params['phone_number']
-  u = User.new(:phone_number => phone_number)
-  u.save!
+  unless phone_number.nil?
+    u = User.new(:phone_number => "+" + phone_number)
+    u.save!
 
-  unless u.nil?
-    msg = "Coin Rules Everything Around Me. (Welcome!)"
-    send_sms(u.phone_number, msg)
+    unless u.nil?
+      msg = "Coin Rules Everything Around Me. (Welcome!)"
+      send_sms(u.phone_number, msg)
+    end
   end
 
-  render :json => u
+  render :text => "Thanks!"
 end
 
 private

@@ -1,1 +1,10 @@
-%h1 bitcoin clan ain't nothing to eff with
+%link(rel="stylesheet" type="text/css" href="simpleweb.css")
+
+%h1 Hi. I'm the Ol' Dirty Bitcoin
+%h2 Bitcoin pricing and news, we like it raw.
+
+= form_tag '/register' do
+  = field_set_tag do
+    %p
+      = text_field_tag :phone_number
+    %p= submit_tag 'Send'

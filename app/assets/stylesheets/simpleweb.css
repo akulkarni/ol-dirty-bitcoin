@@ -1,0 +1,13 @@
+body {
+  background-color:#f0f0f0;
+  font-family: Helvetica;
+}
+
+h1 {
+  letter-spacing: -0.06em;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 16pt;
+}
