@@ -8,6 +8,7 @@ gem 'rails', '4.0.2'
 gem 'pg'
 gem 'thin'
 gem 'haml', '>= 2.2.0'
+gem 'twitter-bootstrap-rails'
 
 gem 'twilio-ruby'
 
