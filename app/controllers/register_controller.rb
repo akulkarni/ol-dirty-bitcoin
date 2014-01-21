@@ -2,6 +2,7 @@ require 'open-uri'
 
 class RegisterController < ApplicationController
 
+WELCOME_MESSAGE = "Coin Rules Everything Around Me. Welcome to ODBTC! Reply with STOP to unsubscribe at any time."
 def create
   response = "Something bad happened."
   phone_number = params['phone_number']
@@ -11,7 +12,7 @@ def create
       u.save!
 
       unless u.nil?
-        msg = "Coin Rules Everything Around Me. (Welcome!)"
+        msg = WELCOME_MESSAGE
         send_sms(u.phone_number, msg)
         response = msg
       end
