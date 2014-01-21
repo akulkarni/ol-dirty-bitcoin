@@ -3,16 +3,22 @@ require 'open-uri'
 class RegisterController < ApplicationController
 
 def create
+  response = "Something bad happened."
   phone_number = params['phone_number']
-  u = User.new(:phone_number => phone_number)
-  u.save!
+  unless phone_number.nil?
+    unless phone_number.empty?
+      u = User.new(:phone_number => "+" + phone_number)
+      u.save!
 
-  unless u.nil?
-    msg = "Coin Rules Everything Around Me. (Welcome!)"
-    send_sms(u.phone_number, msg)
+      unless u.nil?
+        msg = "Coin Rules Everything Around Me. (Welcome!)"
+        send_sms(u.phone_number, msg)
+        response = msg
+      end
+    end
   end
-
-  render :json => u
+  
+  render :text => response
 end
 
 private
