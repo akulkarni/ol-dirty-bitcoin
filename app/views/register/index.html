@@ -6,24 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap -->
-    <link href="../../assets/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+    <%= stylesheet_link_tag "bootstrap.min" %> 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../assets/stylesheets/font-awesome.min.css">
+    <%= stylesheet_link_tag "font-awesome.min" %> 
     <!-- Lato Google Font - For Theme -->        
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato:400,700" %>
     <!-- Default Theme Style -->
-    <link href="../../assets/stylesheets/theme-light.css" rel="stylesheet" media="screen" id="skin">
+    <%= stylesheet_link_tag "theme-light", id: "skin" %> 
     <!-- Theme Color  options - alizarin.css, belize-hole.css, carrot.css, turquoise.css, wisteria.css-->
-    <link href="../../assets/stylesheets/theme-alizarin.css" rel="stylesheet" media="screen" id="swatches">
+    <%= stylesheet_link_tag "theme-alizarin", id: "swatches" %>
     <!-- Theme color Options Viewer - For Demo Purpose only -->    
-    <link href="../../assets/stylesheets/style-switcher.css" rel="stylesheet">
+    <%= stylesheet_link_tag "style-switcher" %>
     <!-- Pacifico Google Font - For Demo Purpose only -->    
-    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-
-    <%= stylesheet_link_tag "bootstrap.min" %>
-    <%= stylesheet_link_tag "theme-light", id: "skin" %>
-    <%= stylesheet_link_tag "font-awesome.min", "theme-alizarin", "style-switcher" %>
-    <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato:400,700", "http://fonts.googleapis.com/css?family=Pacifico" %>
+    <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Pacifico" %>
 
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -71,10 +66,11 @@
             <section id="subscribe" class="clearfix">
                 <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                      <div class="row">
-                        <form role="form" action="http://doozypixels.createsend.com/t/d/s/xky/" method="post">
-                            <div class="col-md-7 col-sm-7"><input type="phone" id="fieldEmail" name="cm-xky-xky" class="form-control input-lg" placeholder="12125551234" required /></div><!--7-->
+		       <%= form_tag "/register", method: "post" do %>
+		            <div class="col-md-7 col-sm-7">
+			      <input type="phone" id="fieldEmail" name="phone_number" class="form-control input-lg" placeholder="12125551234" required /></div><!--7-->
                             <div class="col-md-5 col-sm-5 "><button class="btn-block btn-lg btn-theme">Enter mobile number</button></div><!--5-->
-                        </form>
+		       <% end %>
                     </div><!--row-->
                 </div><!--/6-->
             </section><!--subscribe-->  
@@ -124,7 +120,7 @@
                     	<a href="http://www.twitter.com/odbtc/"><i class="icon-twitter-sign"></i></a>
      
                     </div>
-                    <small><i>&copy; 2014 <a href="http://www.twitter.com/madho" target="_new">madho</a> + <a href="http://www.twitter.com/acoustik" target="_new">ajay</a>. All rights reserved.</i></small>
+                    <small><i>&copy; 2014 <a href="http://www.twitter.com/madho" target="_new">madho</a> + <a href="http://www.twitter.com/acoustik" target="_new">acoustik</a>. All rights reserved.</i></small>
                 </div><!--/12-->
             </footer>
 
@@ -132,17 +128,13 @@
     </div><!--/container-->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="../../assets/javascripts/jquery.js"></script>
-    <%= javascript_include_tag "jquery.js" %>
+<!--    <%= javascript_include_tag "jquery.js" %> -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../../assets/javascripts/bootstrap.min.js"></script>
-    <%= javascript_include_tag "bootstrap.min" %>
+<!--    <%= javascript_include_tag "bootstrap.min" %> -->
     <!-- Below script is for demo purpose only -->
-    <script src="../../assets/javascripts/style-switcher.js"></script>
-    <%= javascript_include_tag "style-switcher" %>    
+<!--    <%= javascript_include_tag "style-switcher" %>    -->
     <!-- IE Input Placeholder Fix -->	
-    <script src="../../assets/javascripts/jquery.placeholder.js"></script>
-    <%= javascript_include_tag "jquery.placeholder" %>
+<!--    <%= javascript_include_tag "jquery.placeholder" %> -->
     <script type="text/javascript">$(function(){$('input, textarea').placeholder();});</script>
   </body>
 </html>
