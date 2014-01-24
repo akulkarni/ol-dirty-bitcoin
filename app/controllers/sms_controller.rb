@@ -18,6 +18,17 @@ def news_update
   render :text => 'OK'
 end  
 
+def reply
+  body = params['Body']
+  phone_number = params['From']
+
+  unless body.nil? or phone_number.nil?
+    unless body.empty? or phone_number.empty?
+      send_sms(phone_number, 'Got: ' + body)
+    end
+  end
+  render :text => 'OK'
+end
 
 private
 
