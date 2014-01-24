@@ -4,6 +4,7 @@
     <title>Ol' Dity Bitcoin - ODBTC.com</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- Bootstrap -->
     <link href="../../assets/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
     <!-- Font Awesome -->
@@ -19,7 +20,10 @@
     <!-- Pacifico Google Font - For Demo Purpose only -->    
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
-    <%= stylesheet_link_tag "bootstrap.min", "font-awesome.min", "theme-light", "theme-alizarin", "style-switcher" %>
+    <%= stylesheet_link_tag "bootstrap.min" %>
+    <%= stylesheet_link_tag "theme-light", id: "skin" %>
+    <%= stylesheet_link_tag "font-awesome.min", "theme-alizarin", "style-switcher" %>
+    <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato:400,700", "http://fonts.googleapis.com/css?family=Pacifico" %>
 
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -68,8 +72,8 @@
                 <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                      <div class="row">
                         <form role="form" action="http://doozypixels.createsend.com/t/d/s/xky/" method="post">
-                            <div class="col-md-7 col-sm-7"><input type="email" id="fieldEmail" name="cm-xky-xky" class="form-control input-lg" placeholder="12125551234" required /></div><!--7-->
-                            <div class="col-md-5 col-sm-5 "><button class="btn btn-block btn-lg btn-theme">Enter mobile number</button></div><!--5-->
+                            <div class="col-md-7 col-sm-7"><input type="phone" id="fieldEmail" name="cm-xky-xky" class="form-control input-lg" placeholder="12125551234" required /></div><!--7-->
+                            <div class="col-md-5 col-sm-5 "><button class="btn-block btn-lg btn-theme">Enter mobile number</button></div><!--5-->
                         </form>
                     </div><!--row-->
                 </div><!--/6-->
@@ -129,12 +133,16 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="../../assets/javascripts/jquery.js"></script>
+    <%= javascript_include_tag "jquery.js" %>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../../assets/javascripts/bootstrap.min.js"></script>
+    <%= javascript_include_tag "bootstrap.min" %>
     <!-- Below script is for demo purpose only -->
     <script src="../../assets/javascripts/style-switcher.js"></script>
+    <%= javascript_include_tag "style-switcher" %>    
     <!-- IE Input Placeholder Fix -->	
     <script src="../../assets/javascripts/jquery.placeholder.js"></script>
+    <%= javascript_include_tag "jquery.placeholder" %>
     <script type="text/javascript">$(function(){$('input, textarea').placeholder();});</script>
   </body>
 </html>
