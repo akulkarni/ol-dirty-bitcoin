@@ -9,7 +9,7 @@ def create
   unless phone_number.nil?
     unless phone_number.empty?
       u = User.new(:phone_number => "+" + phone_number)
-      u.save!
+      u.save
 
       unless u.nil?
         msg = WELCOME_MESSAGE

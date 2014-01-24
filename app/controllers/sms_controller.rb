@@ -1,9 +1,6 @@
 class SmsController < ApplicationController
   
 def index
-  msg = current_prices
-  send_sms('+16463735777', msg)
-  send_sms('+19175731568', msg)
   render :text => 'OK'
 end
 
