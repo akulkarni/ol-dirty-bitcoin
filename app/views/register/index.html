@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ol' Dity Bitcoin - ODBTC.com</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <%= stylesheet_link_tag "bootstrap.min" %> 
+    <!-- Font Awesome -->
+    <%= stylesheet_link_tag "font-awesome.min" %> 
+    <!-- Lato Google Font - For Theme -->        
+    <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato:400,700" %>
+    <!-- Default Theme Style -->
+    <%= stylesheet_link_tag "theme-light", id: "skin" %> 
+    <!-- Theme Color  options - alizarin.css, belize-hole.css, carrot.css, turquoise.css, wisteria.css-->
+    <%= stylesheet_link_tag "theme-alizarin", id: "swatches" %>
+    <!-- Theme color Options Viewer - For Demo Purpose only -->    
+    <%= stylesheet_link_tag "style-switcher" %>
+    <!-- Pacifico Google Font - For Demo Purpose only -->    
+    <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Pacifico" %>
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/javascripts/html5shiv.js"></script>
+      <script src="../../assets/javascripts/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  	<!--<div id="style-switcher" class="hidden-xs">
+  		<div id="show-hide">
+  		<div class="skin">
+            <h5>Skin</h5>
+            <a class="skin-box light" href="../../assets/stylesheets/theme-light.css">&nbsp;</a>
+            <a class="skin-box dark" href="../../assets/stylesheets/theme-dark.css">&nbsp;</a>
+        </div>
+        <div class="swatches">
+            <h5>Swatches</h5>
+            <a class="color-box red" href="../../assets/stylesheets/theme-alizarin.css">&nbsp;</a><br/>
+            <a class="color-box blue" href="assets/css/theme-belize-hole.css">&nbsp;</a>
+            <a class="color-box orange" href="../../assets/stylesheets/theme-carrot.css">&nbsp;</a>
+            <a class="color-box green" href="../../assets/stylesheets/theme-turquoise.css">&nbsp;</a><br/>
+            <a class="color-box voilet" href="../../assets/stylesheets/theme-wisteria.css">&nbsp;</a>
+        </div>
+        </div><!--show-hide-->
+     <!--   <a href="#" id="collapse">Options</a>
+   </div><!--/style-switcher-->
+   <div class="container">
+    	<div class="row">        
+			<header id="logo">
+                <div class="col-md-12 col-sm-12">
+                  <!--old logo  <a href="#" title="its beta">its beta</a>
+                  --->
+		<%= image_tag "odb.png", size: "200x200", alt: "odbtc logo", title: "Don't worry, we're working on a new logo" %><!--/12-->
+			</header>
+
+            <section id="marketing-text">
+                <div class="col-md
+                -12 col-sm-12">
+                	<h1>I'm the<strong> Ol' Dirty Bitcoin<strong></h1>
+                    <p>I send the illest Bitcoin price updates and news to you via SMS.</p>
+                </div><!--12-->
+            </section><!--/marketing-text-->  
+
+            <section id="subscribe" class="clearfix">
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                     <div class="row">
+		       <%= form_tag "/register", method: "post" do %>
+		            <div class="col-md-7 col-sm-7">
+			      <input type="phone" id="fieldEmail" name="phone_number" class="form-control input-lg" placeholder="12125551234" required /></div><!--7-->
+                            <div class="col-md-5 col-sm-5 "><button class="btn-block btn-lg btn-theme">Enter mobile number</button></div><!--5-->
+		       <% end %>
+                    </div><!--row-->
+                </div><!--/6-->
+            </section><!--subscribe-->  
+            
+         
+            <section id="features">
+                <div class="col-md-3 col-sm-3">
+                    <div class="feature-box">
+                        <i class="icon icon-btc"></i>                            
+                        <h2>Market Prices in one place</h2>
+                        <p>All the trends from the major exchanges. For you.</p>
+                    </div><!--feature-box-->
+                </div><!--/3-->
+                
+                <div class="col-md-3 col-sm-3">
+                    <div class="feature-box">
+                        <i class="icon icon-comments"></i>                            
+                        <h2>We're all you need</h2>
+                        <p>Curated news updates mean you don't miss a thing.</p>
+                    </div><!--feature-box-->
+                </div><!--/3-->
+                
+                <div class="col-md-3 col-sm-3">
+                    <div class="feature-box">
+                        <i class="icon-magic"></i>                            
+                        <h2>Works like magic</h2>
+                        <p>Updates sent at 9 AM / 3 PM EST.  Automagically. </p>
+                    </div><!--feature-box-->
+                </div><!--/3-->
+                
+                <div class="col-md-3 col-sm-3">
+                    <div class="feature-box">
+                        <i class="icon-phone"></i>                            
+                        <h2>Works on any phone</h2>
+                        <p>No login. No app.  Just what you need via SMS.</p>
+                    </div><!--feature-box-->
+                </div><!--/3-->
+            </section><!--features-->
+
+			<footer>            
+                <div class="col-md-12 col-sm-12">
+                	<p class="social-text">
+                        <span></span>
+                        <i>Questions? Suggestions? <br/>hit us up!</i>
+                    </p>
+                    <div class="social-icons">
+                    	<a href="http://www.twitter.com/odbtc/"><i class="icon-twitter-sign"></i></a>
+     
+                    </div>
+                    <small><i>&copy; 2014 <a href="http://www.twitter.com/madho" target="_new">madho</a> + <a href="http://www.twitter.com/acoustik" target="_new">acoustik</a>. All rights reserved.</i></small>
+                </div><!--/12-->
+            </footer>
+
+        </div><!--/row-->
+    </div><!--/container-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!--    <%= javascript_include_tag "jquery.js" %> -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+<!--    <%= javascript_include_tag "bootstrap.min" %> -->
+    <!-- Below script is for demo purpose only -->
+<!--    <%= javascript_include_tag "style-switcher" %>    -->
+    <!-- IE Input Placeholder Fix -->	
+<!--    <%= javascript_include_tag "jquery.placeholder" %> -->
+    <script type="text/javascript">$(function(){$('input, textarea').placeholder();});</script>
+  </body>
+</html>
