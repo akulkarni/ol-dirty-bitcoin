@@ -22,7 +22,7 @@ def reply
   unless body.nil? or phone_number.nil?
     unless body.empty? or phone_number.empty?
       if body == "START"
-        register_user(phone_number)
+        register_user(phone_number[1..-1]) # to remove "+"
       end
       send_sms(phone_number, 'Got: ' + body)
     end
