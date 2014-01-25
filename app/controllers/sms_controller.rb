@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class SmsController < ApplicationController
   
 def index
@@ -75,9 +76,10 @@ def current_prices
   bitstamp = Bitstamp.ticker
   btce = Btce::Ticker.new "btc_usd"
   coinbase = Coinbase::Client.new(ENV['COINBASE_SECRET'])
-
-  msg = "C.R.E.A.M. MtGox $%.2f, Bitstamp $%.2f, Btc-e $%.2f, Coinbase %s" 
-
+  
+  msg = RAP.sample 
+  msg += "\n\n$%.2f Gox\n$%.2f Bitstamp\n$%.2f BTC-e\n%s Coinbase"
+  
   return msg % [mtgox.price, bitstamp.last, btce.json["btc_usd"]["last"], coinbase.buy_price(1).format]
 end
 
@@ -95,5 +97,20 @@ end
 def get_twilio_client
   return Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
 end
+
+RAP = [
+"Million bitcoin deals in my email, you mad as hell you ain't CC'ed",
+"We the money team / Fell asleep next to that cake and had a money dream",
+"Lay back with my mind on my money and my money on my mind.",
+"I've got 99 problems, but fiat ain't one.",
+"Noooooooow here's a little sumtin I got to sell/About some bitcoin you know so well.",
+"Bass! How low can you go?!/Bitcoin, what a brother know.",
+"It's funny how money change a situation/Miscommunications lead to complications." ,
+"I had a dream I could buy my way to heaven/When I woke I spent that on a necklace.",
+"If I don’t get paid 2 or 3 million dollars on Monday, I’m a bring on the ARMAGEDDON!",
+"You need to diversify yo bonds *****",
+"He got swung on, his lungs was torn, the kingpin just castled with his rook and lost a pawn",
+"Super Nintendo, Sega Genesis; When I was dead broke man I couldn't picture this"
+]
 
 end
