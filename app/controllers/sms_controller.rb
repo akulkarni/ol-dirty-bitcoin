@@ -2,6 +2,8 @@
 class SmsController < ApplicationController
   
 def index
+  twitter = get_twitter_client
+  twitter.update("Shimmy shimmy ya")
   render :text => 'OK'
 end
 
@@ -80,7 +82,7 @@ def current_prices
   msg = RAP.sample 
   msg += "\n\n$%.2f Gox\n%s Coinbase\n$%.2f Bitstamp\n$%.2f BTC-e"
   
-  return msg % [mtgox.price, bitstamp.last, btce.json["btc_usd"]["last"], coinbase.buy_price(1).format]
+  return msg % [mtgox.price, coinbase.buy_price(1).format, bitstamp.last, btce.json["btc_usd"]["last"]]
 end
 
 def send_sms(phone_number, text)
@@ -96,6 +98,15 @@ end
 
 def get_twilio_client
   return Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
+end
+
+def get_twitter_client
+  return Twitter::REST::Client.new do |config|
+    config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
+    config.consumer_secret     = ENV["TWITTER_YOUR_CONSUMER_SECRET"]
+    config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
+    config.access_token_secret = ENV["TWITTER_ACCESS_SECRET"]
+  end
 end
 
 RAP = [

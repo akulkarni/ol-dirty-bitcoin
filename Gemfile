@@ -10,6 +10,7 @@ gem 'pg'
 gem 'thin'
 gem 'haml', '>= 2.2.0'
 gem 'twitter-bootstrap-rails'
+gem 'twitter'   
 
 gem 'twilio-ruby'
 
