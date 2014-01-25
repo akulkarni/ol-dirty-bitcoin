@@ -21,6 +21,9 @@ def reply
 
   unless body.nil? or phone_number.nil?
     unless body.empty? or phone_number.empty?
+      if body == "START"
+        send_sms(phone_number, "STARTING...")
+      end
       send_sms(phone_number, 'Got: ' + body)
     end
   end
@@ -32,7 +35,7 @@ private
 def sms_all_users(msg)
   users = User.all
   users.each do |u|
-    send_sms(u.phone_number, msg) unless u.phone_number.nil?
+    send_sms(u.phone_number, msg) unless u.phone_number.nil? or !u.is_active
   end
 end
 
