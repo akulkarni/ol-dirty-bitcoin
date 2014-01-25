@@ -21,7 +21,7 @@ def reply
 
   unless body.nil? or phone_number.nil?
     unless body.empty? or phone_number.empty?
-      if body == "START"
+      if body.downcase == "start"
         register_user(phone_number[1..-1]) # to remove "+"
       elsif ['price', 'p'].member?body.downcase
         send_sms(phone_number, current_prices)
@@ -43,7 +43,7 @@ end
 private
 
 WELCOME_MESSAGE = "Coin Rules Everything Around Me.\n\nWelcome to ODBTC! Reply with STOP to unsubscribe at any time.\n\nfollow us: http://twitter.com/odbtc"
-HELP_MESSAGE = "Coin Rules Everything Around Me. \n\n\"p\" or \"price\" for latest prices \n\"STOP\" to unsubscribe"
+HELP_MESSAGE = "Shimmy shimmy ya\n\n\"p\" or \"price\" for latest prices \n\"STOP\" to unsubscribe\n\nfollow us: http://twitter.com/odbtc"
 
 def register_user(phone_number)
   response = "Something bad happened."
