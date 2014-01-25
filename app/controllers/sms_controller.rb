@@ -22,7 +22,11 @@ def reply
   unless body.nil? or phone_number.nil?
     unless body.empty? or phone_number.empty?
       if body == "START"
+        puts phone_number
+        puts phone_number[1..-1]
         register_user(phone_number[1..-1]) # to remove "+"
+      elsif ['price', 'p'].member?body.downcase
+        send_sms(phone_number, current_prices)
       end
       send_sms(phone_number, 'Got: ' + body)
     end
