@@ -22,7 +22,7 @@ def reply
   unless body.nil? or phone_number.nil?
     unless body.empty? or phone_number.empty?
       if body == "START"
-        send_sms(phone_number, "STARTING...")
+        register_user(phone_number)
       end
       send_sms(phone_number, 'Got: ' + body)
     end
@@ -30,7 +30,32 @@ def reply
   render :text => 'OK'
 end
 
+
+def create
+  phone_number = params['phone_number']
+  render :text => register_user(phone_number)
+end
+
+
 private
+
+WELCOME_MESSAGE = "Coin Rules Everything Around Me. Welcome to ODBTC! Reply with STOP to unsubscribe at any time."
+def register_user(phone_number)
+  response = "Something bad happened."
+  unless phone_number.nil?
+    unless phone_number.empty?
+      u = User.new(:phone_number => "+" + phone_number)
+      u.save
+      
+      unless u.nil?
+        msg = WELCOME_MESSAGE
+        send_sms(u.phone_number, msg)
+        response = msg
+      end
+    end
+  end
+  return response
+end
 
 def sms_all_users(msg)
   users = User.all
@@ -52,9 +77,13 @@ end
 
 def send_sms(phone_number, text)
   client = get_twilio_client
-  client.account.sms.messages.create(:from => '+13212826467',
-                                     :to => phone_number,
-                                     :body => text)
+  begin
+    client.account.sms.messages.create(:from => '+13212826467',
+                                       :to => phone_number,
+                                       :body => text)
+  rescue
+    puts "Error sending SMS to %s" % phone_number
+  end
 end
 
 def get_twilio_client
