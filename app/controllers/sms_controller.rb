@@ -22,13 +22,12 @@ def reply
   unless body.nil? or phone_number.nil?
     unless body.empty? or phone_number.empty?
       if body == "START"
-        puts phone_number
-        puts phone_number[1..-1]
         register_user(phone_number[1..-1]) # to remove "+"
       elsif ['price', 'p'].member?body.downcase
         send_sms(phone_number, current_prices)
+      else
+        send_sms(phone_number, HELP_MESSAGE)
       end
-      send_sms(phone_number, 'Got: ' + body)
     end
   end
   render :text => 'OK'
@@ -44,11 +43,13 @@ end
 private
 
 WELCOME_MESSAGE = "Coin Rules Everything Around Me. Welcome to ODBTC! Reply with STOP to unsubscribe at any time."
+HELP_MESSAGE = 'Coin Rules Everything Around Me. \t\tOptions: \n"p" or "price" for latest price'
+
 def register_user(phone_number)
   response = "Something bad happened."
   unless phone_number.nil?
     unless phone_number.empty?
-      phone_number = "1" + phone_number if phone_number[0] != 1
+      phone_number = "1" + phone_number if phone_number[0] != "1"
       u = User.new(:phone_number => "+" + phone_number)
       u.save
       
