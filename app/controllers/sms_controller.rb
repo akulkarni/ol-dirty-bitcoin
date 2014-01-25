@@ -24,7 +24,7 @@ def reply
     unless body.empty? or phone_number.empty?
       if body.downcase == "start"
         register_user(phone_number[1..-1]) # to remove "+"
-      elsif ['price', 'p'].member?body.downcase
+      elsif ['price', 'prices', 'p'].member?body.downcase
         send_sms(phone_number, current_prices)
       else
         send_sms(phone_number, HELP_MESSAGE)
@@ -78,7 +78,7 @@ def current_prices
   coinbase = Coinbase::Client.new(ENV['COINBASE_SECRET'])
   
   msg = RAP.sample 
-  msg += "\n\n$%.2f Gox\n$%.2f Bitstamp\n$%.2f BTC-e\n%s Coinbase"
+  msg += "\n\n$%.2f Gox\n%s Coinbase\n$%.2f Bitstamp\n$%.2f BTC-e"
   
   return msg % [mtgox.price, bitstamp.last, btce.json["btc_usd"]["last"], coinbase.buy_price(1).format]
 end
