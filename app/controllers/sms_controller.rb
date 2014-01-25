@@ -42,8 +42,8 @@ end
 
 private
 
-WELCOME_MESSAGE = "Coin Rules Everything Around Me. Welcome to ODBTC! Reply with STOP to unsubscribe at any time."
-HELP_MESSAGE = "Coin Rules Everything Around Me. \n\nOptions: \"p\" or \"price\" for latest price"
+WELCOME_MESSAGE = "Coin Rules Everything Around Me.\nWelcome to ODBTC! Reply with STOP to unsubscribe at any time."
+HELP_MESSAGE = "Coin Rules Everything Around Me. \n\n\"p\" or \"price\" for latest prices \n\"STOP\" to unsubscribe"
 
 def register_user(phone_number)
   response = "Something bad happened."
