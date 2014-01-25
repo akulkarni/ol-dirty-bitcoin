@@ -44,6 +44,7 @@ def register_user(phone_number)
   response = "Something bad happened."
   unless phone_number.nil?
     unless phone_number.empty?
+      phone_number = "1" + phone_number if phone_number[0] != 1
       u = User.new(:phone_number => "+" + phone_number)
       u.save
       
