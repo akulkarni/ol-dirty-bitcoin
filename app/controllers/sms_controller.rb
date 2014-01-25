@@ -42,7 +42,7 @@ end
 
 private
 
-WELCOME_MESSAGE = "Coin Rules Everything\nAround Me.\n\nWelcome to ODBTC! Reply with STOP to unsubscribe at any time.\n\nhttp://twitter.com/odbtc"
+WELCOME_MESSAGE = "Coin Rules Everything\nAround Me.\n\nWelcome to ODBTC! If you ever want to unsubscribe, reply with STOP.\n\nhttp://twitter.com/odbtc"
 HELP_MESSAGE = "Shimmy shimmy ya\n\n\"p\" or \"price\" for latest prices \n\"STOP\" to unsubscribe\n\nhttp://twitter.com/odbtc"
 
 def register_user(phone_number)
