@@ -80,7 +80,7 @@ def current_prices
   msg = RAP.sample 
   msg += "\n\n$%.2f Gox\n%s Coinbase\n$%.2f Bitstamp\n$%.2f BTC-e"
   
-  return msg % [mtgox.price, bitstamp.last, btce.json["btc_usd"]["last"], coinbase.buy_price(1).format]
+  return msg % [mtgox.price, coinbase.buy_price(1).format, bitstamp.last, btce.json["btc_usd"]["last"]]
 end
 
 def send_sms(phone_number, text)
