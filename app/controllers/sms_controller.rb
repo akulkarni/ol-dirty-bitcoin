@@ -128,14 +128,14 @@ RAP = [
 # "He got swung on, his lungs was torn, the kingpin just castled with his rook and lost a pawn",
 "Super Nintendo, Sega Genesis; When I was dead broke man I couldn't picture this",
 "Thinkin’ of a master plan, ‘Cause ain’t no more bitcoins inside my hand",
-"One, two, three and-to-the fo’/ Snoop Doggy Dogg and BTC is at the door"
+"One, two, three and-to-the fo’/ Snoop Doggy Dogg and BTC is at the door",
 "Straight outta Compton, a crazy coin investor named Ice Cube",
 "Once upon a time not long ago, Where people used wallets with no crypto",
 "It was all a dream, I used to read bitcoin magazine",
-"I got you stuck off the realness, we be the infamous you heard of us, Official Bitcoin harvesters",
+# "I got you stuck off the realness, we be the infamous you heard of us, Official Bitcoin harvesters",
 "Shimmy Shimmy Ya Shimmy Yeah Shimmy Yeh!, Gimme the coin so I can take it awwayyy...",
 "Don’t steal my ‘coin - I’m close to the edge / I’m tryin’ not to lose my bread",
-"I like bitcoins and I cannot lie / You other brothers can’t deny",
+"I like bitcoins and I cannot lie / You other brothers can't deny"       
 ]
 
 end
