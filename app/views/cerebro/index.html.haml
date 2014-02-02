@@ -5,5 +5,9 @@
     %p
       = label_tag :message, 'Message:'
       = text_area_tag :message
+
+    %p
+      = label_tag :everyone, 'Everyone?'
+      = check_box_tag :everyone, 'true' 
     %p= submit_tag 'Send'
 

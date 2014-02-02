@@ -12,7 +12,16 @@ end
 
 def news_update
   msg = params['message']
-  sms_all_users(msg) unless msg.nil?
+  everyone = params['everyone']
+
+  everyone = "false" if everyone.nil?
+
+  if everyone.downcase == "true"
+    sms_all_users(msg) unless msg.nil?
+  else
+    sms_all_admins(msg) unless msg.nil?
+  end
+
   render :text => 'OK'
 end  
 
@@ -67,6 +76,13 @@ end
 def sms_all_users(msg)
   users = User.all
   users.each do |u|
+    send_sms(u.phone_number, msg) unless u.phone_number.nil? or !u.is_active
+  end
+end
+
+def sms_all_admins(msg)
+  admins = User.where("admin is true")
+  admins.each do |u|
     send_sms(u.phone_number, msg) unless u.phone_number.nil? or !u.is_active
   end
 end
